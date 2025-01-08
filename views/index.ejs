@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>URL Shortener</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Shorten Your URL</h2>
+      <form id="shortenForm" method="post" action="/short">
+        <input type="url" name="longurl" placeholder="Enter your URL here..." required>
+        <button type="submit">Shorten</button>
+      </form>
+      <p id="successMessage" class="hidden">URL shortened successfully!</p>
+    </section>
+    <% /* %>
+        <section>
+        <h2>Your Shortened URLs</h2>
+        <ul id="urlList">
+            <% if (urls && urls.length) { %>
+            <% urls.forEach(url => { %>
+                <li>
+                <span><%= url.original %></span>
+                <a href="<%= url.shortened %>" target="_blank"><%= url.shortened %></a>
+                </li>
+            <% }); %>
+            <% } %>
+        </ul>
+        </section>
+    <% */ %>
+  </main>
+  <footer>
+    <p>© 2025 URL Shortener App</p>
+  </footer>
+  <script src="/js/script.js"></script>
+</body>
+</html>
