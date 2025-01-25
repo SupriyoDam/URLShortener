@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
 const bodyparser = require('body-parser')
+const mongoose = require('mongoose')
 
 const Url = require('./models/url')
+const MONGO_URI = "mongodb+srv://supriyo_user:DdVq4CtdUFzPNxc7@cluster0.l2o03.mongodb.net/urlshortener"
 
 const adminRoutes = require('./routes/admin')
 
@@ -23,6 +25,11 @@ app.use('/',(req, res, next) => {
     })
 })
 
-app.listen(3000, ()=>{
-    console.log('URL Shotener App started at http://localhost:3000/')
+
+mongoose.connect(MONGO_URI)
+    .then(()=>{
+        app.listen(3000, ()=>{
+            console.log('URL Shotener App started at http://localhost:3000/')
+    })
+
 })

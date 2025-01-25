@@ -3,7 +3,10 @@
 <section>
       <h2>Shorten Your URL</h2>
       <form id="shortenForm" method="post" action="/short">
-        <input type="url" name="longurl" placeholder="Enter your URL here..." required>
+        <!-- <label for="longurl">Url</label> -->
+        <input type="url" name="longurl" placeholder="paste URL here..." required>
+        <!-- <label for="description">Notes</label> -->
+        <input type="text" name="description" placeholder="Notes about URL">
         <button type="submit">Shorten</button>
       </form>
       <p id="successMessage" class="hidden">URL shortened successfully!</p>
