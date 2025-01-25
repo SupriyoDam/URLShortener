@@ -7,20 +7,30 @@ exports.getIndex = (req, res, next)=>{
         pagetitle: 'Home'
     })
 }
-
 exports.getShort = (req, res, next)=>{
-    res.render('index',{
-        pagetitle: 'Home'
+    res.render('urllist',{
+        pagetitle: 'Url List'
     })
 }
 
 exports.postShort = (req, res, next)=>{
     const fullUrl = req.body.longurl
     const description = req.body.description
-    console.log('long url:', fullUrl,'\ndescription:',description)
+    // console.log('long url:', fullUrl,'\ndescription:',description)
     const shortUrl = urlUtils.urlGenerate(); // will generate short urlStrings
-    console.log('generated short url part:', shortUrl)
+    // console.log('generated short url part:', shortUrl)
     const url = new Url({longurl: fullUrl, shorturl: shortUrl, description: description})
     url.save()
-    res.redirect('/')
+    res.redirect('/urls')
+}
+
+exports.getUrls = (req, res, next)=>{
+    Url.find()
+        .then((urls)=>{
+            console.log(urls)
+            res.render('urllist',{
+                pagetitle: 'Url List',
+                urls: urls
+            })
+        })
 }

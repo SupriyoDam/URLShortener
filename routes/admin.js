@@ -10,4 +10,6 @@ router.post('/short', adminController.postShort) // for proceccing and saving th
 
 router.get('/short', adminController.getShort) // for displaying only shortened URL
 
+router.get('/urls',adminController.getUrls)
+
 module.exports = router

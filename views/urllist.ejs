@@ -1,0 +1,23 @@
+<%- include('includes/head.ejs') %>
+  
+    <section>
+        <% if(urls.length > 0) { %> 
+            <h2>Short URL List</h2>
+
+            <% for (let url of urls) { %>
+                <article id="container">
+                    <p><%= url.shorturl %></p>
+                    <p><%= url.description %></p>
+                    <a href="<%= url.longurl %>" target="_blank">Navigate</a>
+                </article>
+            <% } %>
+
+
+        <% } else { %> 
+            <h2>No URL in List</h2>
+        <% } %>
+    </section>
+
+    <%- include('includes/tail.ejs') %>
+
+
