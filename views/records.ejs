@@ -1,0 +1,43 @@
+<%- include('includes/head.ejs') %>
+<header>
+<h1>All Shortened URLs</h1>
+</header>
+  <main>
+    <section>
+      <h2>Saved URLs</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Short URL</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (urls && urls.length) { %>
+            <% urls.forEach(url => { %>
+              <tr>
+                <td>
+                  <span class="short-url">http://www.shaw.ty/<%= url.shorturl %></span>
+                </td>
+                <td><%= url.description || "No description" %></td>
+                <td>
+                  <button class="copy-btn" data-url="<%= url.shorturl %>">Copy</button>
+                  <button class="dlt-btn" data-url="<%= url.shorturl %>">Delete</button>
+                  <a href="<%= url.longurl %>" target="_blank" class="open-btn">Open</a>
+                </td>
+              </tr>
+            <% }); %>
+          <% } else { %>
+            <tr><td colspan="3">No records found.</td></tr>
+          <% } %>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 URL Shortener App</p>
+  </footer>
+  <script src="/script.js"></script>
+</body>
+</html>

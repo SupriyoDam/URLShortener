@@ -8,7 +8,7 @@ exports.getIndex = (req, res, next)=>{
     })
 }
 exports.getShort = (req, res, next)=>{
-    res.render('urllist',{
+    res.render('records',{
         pagetitle: 'Url List'
     })
 }
@@ -28,7 +28,7 @@ exports.getUrls = (req, res, next)=>{
     Url.find()
         .then((urls)=>{
             console.log(urls)
-            res.render('urllist',{
+            res.render('records',{
                 pagetitle: 'Url List',
                 urls: urls
             })
