@@ -10,6 +10,8 @@ router.post('/short', adminController.postShort) // for proceccing and saving th
 
 router.get('/short', adminController.getShort) // for displaying only shortened URL
 
-router.get('/urls',adminController.getUrls)
+router.get('/records',adminController.getUrls) // for displaying all the urls
+
+router.post('/delete',adminController.postDeleteUrl) // for deleting the url
 
 module.exports = router
