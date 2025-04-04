@@ -15,5 +15,20 @@ exports.urlGenerate = () => {
 }
 
 exports.urlRepeatCheck = (newUrl) =>{
-    
+
 }
+
+exports.decodeUrl = (shortUrl) => {
+    return Url.findOne({ shorturl: shortUrl })
+        .then((url) => {
+            if (url) {
+                return url.longurl; // Return the long URL
+            } else {
+                throw new Error('Short URL not found');
+            }
+        })
+        .catch((err) => {
+            console.error('Error decoding URL:', err);
+            throw err; // Re-throw the error to handle it in the calling function
+        });
+};

@@ -7,6 +7,7 @@ const Url = require('./models/url')
 const MONGO_URI = "mongodb+srv://supriyo_user:DdVq4CtdUFzPNxc7@cluster0.l2o03.mongodb.net/urlshortener"
 
 const adminRoutes = require('./routes/admin')
+const utilRoutes = require('./routes/util')
 
 const app = express()
 
@@ -17,7 +18,7 @@ app.use(express.static(path.join(process.cwd(),'public')))
 app.set('view engine', 'ejs')
 app.set('views', 'views')
 
-app.use('/',adminRoutes)
+app.use('/',adminRoutes, utilRoutes)
 
 app.use('/',(req, res, next) => {
     res.render('error',{
