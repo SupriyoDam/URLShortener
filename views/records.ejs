@@ -18,14 +18,12 @@
             <% urls.forEach(url => { %>
               <tr>
                 <td>
-                  <a href="http://localhost:3000/<%= url.shorturl %>">
-                    http://localhost:3000/<%= url.shorturl %>
-                  </a>                  
+                  <p>http://localhost:3000/<%= url.shorturl %></p>                
                 </td>
                 <td><%= url.description || "No description" %></td>
                 <td class="url-actions">
                   <button class="copy-btn" data-url="<%= url.shorturl %>">Copy</button>
-                  <a href="<%= url.longurl %>" target="_blank" class="open-btn">Open</a>
+                  <a href="<%= url.shorturl %>" target="_blank" class="open-btn">Open</a>
                   <form action="/delete/" method="POST">
                     <input type="hidden" value="<%= url._id %>" name="id">
                     <button type="submit" class="dlt-btn">Delete</button>
